@@ -1,10 +1,4 @@
-from pathlib import Path
-import shutil, zipfile, pypandoc
 
-base = Path("/mnt/data")
-repo = base / "aws-rds-dynamodb-cornell-notes"
-assets = repo / "assets"
-assets.mkdir(parents=True, exist_ok=True)
 
 source_image = base / "AWS RDS and DynamoDB Cornell Notes Infographic(1).png"
 image_dest = assets / "aws-rds-dynamodb-cornell-notes.png"
@@ -137,11 +131,4 @@ pypandoc.convert_text(
     extra_args=["--standalone"]
 )
 
-zip_path = base / "aws-rds-dynamodb-cornell-notes-github.zip"
-with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
-    for path in repo.rglob("*"):
-        if path.is_file():
-            zf.write(path, path.relative_to(repo.parent))
 
-print(f"Created README: {readme_path}")
-print(f"Created GitHub-ready package: {zip_path}")
