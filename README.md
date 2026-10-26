@@ -1,10 +1,6 @@
 
 
-source_image = base / "AWS RDS and DynamoDB Cornell Notes Infographic(1).png"
-image_dest = assets / "aws-rds-dynamodb-cornell-notes.png"
-shutil.copy2(source_image, image_dest)
-
-readme_text = r"""<div align="center">
+<div align="center">
 
 # AWS RDS & DynamoDB — Cornell Notes
 
@@ -120,15 +116,6 @@ aws-rds-dynamodb-cornell-notes/
 *Keep Learning. Keep Building. ☁️*
 
 </div>
-"""
 
-readme_path = repo / "README.md"
-pypandoc.convert_text(
-    readme_text,
-    to="md",
-    format="md",
-    outputfile=str(readme_path),
-    extra_args=["--standalone"]
-)
 
 
